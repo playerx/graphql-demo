@@ -11,14 +11,6 @@ interface Customer {
 	loans: [Loan]
 }
 
-type JuridicalCustomer implements Customer {
-	id: ID!
-	name: String!
-	loans: [Loan]
-	registrationNumber: String
-	contactPersons: [ContactPerson]
-}
-
 type PhysicalCustomer implements Customer {
 	id: ID!
 	name: String!
@@ -28,31 +20,37 @@ type PhysicalCustomer implements Customer {
 	age: Int
 }
 
-type JuridicalCustomer {
+type JuridicalCustomer implements Customer {
 	id: ID!
 	name: String!
 	loans: [Loan]
+	registrationNumber: String
+	contactPersons: [ContactPerson]
 }
 
 
 type Loan {
 	id: ID!
 	name: String
+	amount: Float
 }
 
 
 # This type specifies the entry points into our API
 type Query {
-	customers: [Customer]    # "[]" means this is a list of channels
+	customers(skip: Int, take: Int): [Customer]    # "[]" means this is a list of channels
 	customer(id: ID!): Customer
 }
 
 # The mutation root type, used to define all mutations
 type Mutation {
-	customerAdd(type: String!, name: String!): Customer
+	customerCreatePhysical(name: String!): PhysicalCustomer
+	customerCreateJuridical(name: String!): JuridicalCustomer
+	loanCreate(customerId: ID!, amount: Float, name: String): Loan
 }
 
 # The subscription root type, specifying what we can subscribe to
 type Subscription {
-	customerAdded(): Customer
+	customerCreated: Customer
+	loanCreated: Loan
 }
