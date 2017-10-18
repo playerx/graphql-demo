@@ -4,6 +4,7 @@ import { createServer, Server } from "http";
 import { graphqlExpress, graphiqlExpress } from "apollo-server-express";
 import { SubscriptionServer } from "subscriptions-transport-ws";
 import { execute, subscribe } from "graphql";
+import * as cors from "cors";
 
 import { schema } from "./schema";
 
@@ -13,7 +14,7 @@ const PORT: number = 3000;
 const app: express.Express = express();
 
 // bodyParser is needed just for POST.
-app.use("/graphql", bodyParser.json(), graphqlExpress({ schema: myGraphQLSchema }));
+app.use("/graphql", cors(), bodyParser.json(), graphqlExpress({ schema: myGraphQLSchema }));
 app.get("/graphiql", graphiqlExpress({
 	endpointURL: "/graphql",
 	subscriptionsEndpoint: `ws://localhost:${PORT}/subscriptions`

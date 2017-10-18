@@ -1,34 +1,39 @@
 {
-	"name": "graphql-server",
-	"version": "1.0.0",
-	"description": "",
-	"main": "index.js",
-	"scripts": {
-		"start": "nodemon",
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"author": "",
-	"license": "ISC",
-	"dependencies": {
-		"apollo-server-express": "^1.1.6",
-		"body-parser": "^1.18.2",
-		"express": "^4.16.2",
-		"faker": "^4.1.0",
-		"graphql": "0.11.7",
-		"graphql-tools": "2.5.0",
-		"graphql-subscriptions": "^0.5.4",
-		"subscriptions-transport-ws": "^0.9.1"
-	},
-	"devDependencies": {
-		"@playlyfe/gql": "^2.3.2",
-		"@types/body-parser": "^1.16.5",
-		"@types/es6-promise": "0.0.33",
-		"@types/express": "^4.0.37",
-		"@types/faker": "^4.1.1",
-		"@types/graphql": "^0.11.5",
-		"nodemon": "^1.12.1",
-		"ts-node": "^3.3.0",
-		"tslint": "^5.7.0",
-		"typescript": "^2.5.3"
-	}
+  "name": "graphql-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/cors": "^2.8.1",
+    "@types/express-graphql": "0.0.34",
+    "apollo-server-express": "^1.1.6",
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "express-graphql": "^0.6.11",
+    "faker": "^4.1.0",
+    "graphql": "0.11.7",
+    "graphql-schema-decorator": "git+https://github.com/playerx/graphql-schema-decorator.git",
+    "graphql-subscriptions": "^0.5.4",
+    "graphql-tools": "2.5.0",
+    "subscriptions-transport-ws": "^0.9.1"
+  },
+  "devDependencies": {
+    "@playlyfe/gql": "^2.3.2",
+    "@types/body-parser": "^1.16.5",
+    "@types/es6-promise": "0.0.33",
+    "@types/express": "^4.0.37",
+    "@types/faker": "^4.1.1",
+    "@types/graphql": "^0.11.5",
+    "nodemon": "^1.12.1",
+    "ts-node": "^3.3.0",
+    "tslint": "^5.7.0",
+    "typescript": "^2.5.3"
+  }
 }

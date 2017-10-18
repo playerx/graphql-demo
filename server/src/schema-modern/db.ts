@@ -10,7 +10,6 @@ interface Loan {
 interface Customer {
 	id: number;
 	name: string;
-	loansCount?: number;
 	loans?: Loan[];
 }
 
@@ -51,7 +50,7 @@ ContactPersons.push({
 
 // add seed for consistent random data
 faker.seed(9);
-for (let i: number = 1; i < 80; i++) {
+for (let i: number = 0; i < 50; i++) {
 	const loans: Loan[] = [];
 
 	loans.push({

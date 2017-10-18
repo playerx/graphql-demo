@@ -1,0 +1,21 @@
+<mat-toolbar color=primary>
+	<button mat-button
+	        routerLink="/">
+		<mat-icon>blur_on</mat-icon>
+		GraphQL Demo
+	</button>
+	<span class=spacer></span>
+
+	<button mat-button
+	        routerLink="/customer">
+		<mat-icon>people</mat-icon>
+		Customers
+	</button>
+
+	<button mat-button
+	        routerLink="/debug">
+		<mat-icon>bug_report</mat-icon>
+		Debug
+	</button>
+</mat-toolbar>
+<router-outlet></router-outlet>

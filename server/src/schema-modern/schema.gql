@@ -8,14 +8,12 @@ type ContactPerson {
 interface Customer {
 	id: ID!
 	name: String!
-	loansCount: Int!
 	loans: [Loan]
 }
 
 type PhysicalCustomer implements Customer {
 	id: ID!
 	name: String!
-	loansCount: Int!
 	loans: [Loan]
 	firstName: String
 	lastName: String
@@ -25,7 +23,6 @@ type PhysicalCustomer implements Customer {
 type JuridicalCustomer implements Customer {
 	id: ID!
 	name: String!
-	loansCount: Int!
 	loans: [Loan]
 	registrationNumber: String
 	contactPersons: [ContactPerson]
@@ -42,7 +39,6 @@ type Loan {
 # This type specifies the entry points into our API
 type Query {
 	customers(skip: Int, take: Int): [Customer]    # "[]" means this is a list of channels
-	customersCount: Int
 	customer(id: ID!): Customer
 }
 

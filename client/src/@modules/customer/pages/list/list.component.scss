@@ -1,0 +1,37 @@
+section {
+	width: 1000px;
+    margin-left: auto;
+	margin-right: auto;
+
+	h2 {
+		font-weight: 300;
+	}
+}
+
+
+.mat-table {
+	border: 1px solid #efefef;
+    border-bottom: 0;
+}
+
+
+.textRight {
+	text-align: right;
+}
+
+button[mat-icon-button] {
+	color: rgb(141, 141, 141);
+}
+
+
+mat-paginator {
+
+	float: right;
+	margin-top: -10px;
+
+	&::ng-deep {
+		.mat-paginator-page-size{
+			display: none;
+		}
+	}
+}

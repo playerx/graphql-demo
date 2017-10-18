@@ -1,0 +1,54 @@
+<br/>
+<br/>
+<section>
+
+	<mat-paginator #paginator
+	               [length]="totalCount"
+	               [(pageIndex)]="pageIndex"
+	               [(pageSize)]="pageSize"
+	               [pageSizeOptions]="[5, 10, 25, 100]"
+	               (page)="refresh($event)">
+	</mat-paginator>
+	<h2>Customers</h2>
+	<mat-table #table
+	           [dataSource]="dataSource">
+
+		<!--- Note that these columns can be defined in any order.
+					  The actual rendered columns are set as a property on the row definition" -->
+
+		<!-- ID Column -->
+		<ng-container matColumnDef="id">
+			<mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+			<mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+		</ng-container>
+
+		<!-- Name Column -->
+		<ng-container matColumnDef="name">
+			<mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+			<mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
+		</ng-container>
+
+		<!-- Loans Count Column -->
+		<ng-container matColumnDef="loansCount">
+			<mat-header-cell *matHeaderCellDef> Loans </mat-header-cell>
+			<mat-cell *matCellDef="let row"> {{row.loansCount}} </mat-cell>
+		</ng-container>
+
+		<!-- Actions Column -->
+		<ng-container matColumnDef="actions">
+			<mat-header-cell *matHeaderCellDef> </mat-header-cell>
+			<mat-cell *matCellDef="let row"
+			          class=textRight>
+				<button mat-icon-button>
+					<mat-icon>add</mat-icon>
+				</button>
+				<button mat-icon-button>
+					<mat-icon>remove</mat-icon>
+				</button>
+			</mat-cell>
+		</ng-container>
+
+		<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+		<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+	</mat-table>
+</section>

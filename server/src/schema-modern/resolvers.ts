@@ -7,12 +7,11 @@ const pubsub: any = new PubSub();
 
 export const resolvers: any = {
 	Query: {
-		customers: (_: any, { skip = 0, take = 10 }) => db.Customers.sort((a, b) => b.id - a.id).slice(skip, skip + take).map(x => {
-			x.loansCount = x.loans ? x.loans.length : 0;
-			return x;
-		}),
+		customers: (_: any, { skip = 0, take = 10 }) => {
+			console.log('aaa');
 
-		customersCount: () => db.Customers.length,
+			return db.Customers.slice(skip, skip + take);
+		},
 
 		customer: (_: any, obj: any) => {
 
@@ -20,20 +19,20 @@ export const resolvers: any = {
 		}
 	},
 
-	Customer: {
-		__resolveType(obj: any, context: any, info: any) {
+	// Customer: {
+	// 	__resolveType(obj: any, context: any, info: any) {
 
-			if (obj.registrationNumber) {
-				return 'JuridicalCustomer';
-			}
+	// 		if (obj.registrationNumber) {
+	// 			return 'JuridicalCustomer';
+	// 		}
 
-			if (obj.age) {
-				return 'PhysicalCustomer';
-			}
+	// 		if (obj.age) {
+	// 			return 'PhysicalCustomer';
+	// 		}
 
-			return null;
-		},
-	},
+	// 		return null;
+	// 	},
+	// },
 
 	Mutation: {
 
