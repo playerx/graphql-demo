@@ -37,7 +37,7 @@ export class ListComponent implements OnInit, OnDestroy {
 			.subscribe({ query: onLoanAdd })
 			.takeUntil(this.dispose$)
 			.subscribe(x => {
-				this.notify.info(x.newItem.name, `New loan is created with amount: ${this.currency.transform(x.newItem.amount, 'USD', true)}`);
+				this.notify.info('Loan created', `New loan is created with amount: ${this.currency.transform(x.newItem.amount, 'USD', true)}`);
 				this.refresh(null, true);
 			});
 
@@ -97,7 +97,7 @@ export class ListComponent implements OnInit, OnDestroy {
 			variables: {
 				customerId: customerId,
 				name: 'My Loan',
-				amount: 222
+				amount: 210
 			}
 		}).subscribe();
 	}
