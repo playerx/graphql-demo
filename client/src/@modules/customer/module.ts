@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, CurrencyPipe } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { StoreConfigService } from 'angular-redux-dynamic-modules';
 
@@ -24,7 +24,7 @@ import { MaterialModule } from 'app/common/material.module';
 		MaterialModule,
 		RouterModule.forChild(routes)
 	],
-	providers: [Actions, UserService, Epics],
+	providers: [Actions, UserService, Epics, CurrencyPipe],
 })
 export class Module {
 

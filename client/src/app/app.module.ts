@@ -12,6 +12,7 @@ import { MaterialModule } from './common/material.module';
 import { AppComponent } from './components/app/app.component';
 import { MainComponent } from './components/main/main.component';
 import { DebugComponent } from './components/debug/debug.component';
+import { SimpleNotificationsModule } from 'angular2-notifications';
 import { appRoutes } from './app.routes';
 
 
@@ -30,6 +31,7 @@ import { appRoutes } from './app.routes';
 		RouterModule.forRoot(appRoutes),
 		ApolloModule.forRoot(provideClient),
 		StoreModule,
+		SimpleNotificationsModule.forRoot(),
 	],
 	bootstrap: [AppComponent]
 })

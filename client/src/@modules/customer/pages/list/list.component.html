@@ -4,8 +4,8 @@
 
 	<mat-paginator #paginator
 	               [length]="totalCount"
-	               [(pageIndex)]="pageIndex"
-	               [(pageSize)]="pageSize"
+	               [(pageIndex)]="config.pageIndex"
+	               [(pageSize)]="config.pageSize"
 	               [pageSizeOptions]="[5, 10, 25, 100]"
 	               (page)="refresh($event)">
 	</mat-paginator>
@@ -30,8 +30,18 @@
 
 		<!-- Loans Count Column -->
 		<ng-container matColumnDef="loansCount">
-			<mat-header-cell *matHeaderCellDef> Loans </mat-header-cell>
-			<mat-cell *matCellDef="let row"> {{row.loansCount}} </mat-cell>
+			<mat-header-cell *matHeaderCellDef
+			                 class=textCenter> Loans </mat-header-cell>
+			<mat-cell *matCellDef="let row"
+			          class=textCenter> {{row.loansCount}} </mat-cell>
+		</ng-container>
+
+		<!-- Loans Amount Column -->
+		<ng-container matColumnDef="loansAmount">
+			<mat-header-cell *matHeaderCellDef
+			                 class=textRight> Total Amount </mat-header-cell>
+			<mat-cell *matCellDef="let row"
+			          class=textRight> {{row.loansAmount | currency:'USD':true}} </mat-cell>
 		</ng-container>
 
 		<!-- Actions Column -->
@@ -39,11 +49,9 @@
 			<mat-header-cell *matHeaderCellDef> </mat-header-cell>
 			<mat-cell *matCellDef="let row"
 			          class=textRight>
-				<button mat-icon-button>
-					<mat-icon>add</mat-icon>
-				</button>
-				<button mat-icon-button>
-					<mat-icon>remove</mat-icon>
+				<button mat-icon-button
+				        (click)="addLoan(row.id)">
+					<mat-icon>attach_money</mat-icon>
 				</button>
 			</mat-cell>
 		</ng-container>
@@ -52,3 +60,8 @@
 		<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 	</mat-table>
 </section>
+<button mat-fab
+        class=add
+        (click)="addCustomer()">
+	<mat-icon>add</mat-icon>
+</button>

@@ -41,6 +41,7 @@
 			}
 		],
 		"no-arg": true,
+		"no-unused-variable": true,
 		"no-bitwise": true,
 		"no-console": [
 			true,

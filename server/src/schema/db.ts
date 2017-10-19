@@ -11,6 +11,7 @@ interface Customer {
 	id: number;
 	name: string;
 	loansCount?: number;
+	loansAmount?: number;
 	loans?: Loan[];
 }
 

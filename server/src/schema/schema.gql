@@ -9,6 +9,7 @@ interface Customer {
 	id: ID!
 	name: String!
 	loansCount: Int!
+	loansAmount: Int!
 	loans: [Loan]
 }
 
@@ -16,6 +17,7 @@ type PhysicalCustomer implements Customer {
 	id: ID!
 	name: String!
 	loansCount: Int!
+	loansAmount: Int!
 	loans: [Loan]
 	firstName: String
 	lastName: String
@@ -26,6 +28,7 @@ type JuridicalCustomer implements Customer {
 	id: ID!
 	name: String!
 	loansCount: Int!
+	loansAmount: Int!
 	loans: [Loan]
 	registrationNumber: String
 	contactPersons: [ContactPerson]

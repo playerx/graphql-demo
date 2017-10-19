@@ -19,6 +19,10 @@ section {
 	text-align: right;
 }
 
+.textCenter {
+	text-align: center;
+}
+
 button[mat-icon-button] {
 	color: rgb(141, 141, 141);
 }
@@ -34,4 +38,10 @@ mat-paginator {
 			display: none;
 		}
 	}
+}
+
+button.add {
+	position: fixed;
+    right: 40px;
+    bottom: 30px;
 }
