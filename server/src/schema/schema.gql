@@ -1,4 +1,7 @@
 scalar JSON
+scalar Date
+scalar Time
+scalar DateTime
 
 type ContactPerson {
 	id: ID!
