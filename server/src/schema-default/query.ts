@@ -14,6 +14,13 @@ export const query = new GraphQLObjectType({
 			resolve() {
 				return 'world';
 			}
+		},
+
+		hello2: {
+			type: GraphQLString,
+			resolve() {
+				return 'world';
+			}
 		}
 	}
 });

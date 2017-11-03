@@ -1,6 +1,5 @@
 import { makeExecutableSchema, addMockFunctionsToSchema } from "graphql-tools";
 import * as fs from "fs";
-import "@playlyfe/gql";
 
 import { resolvers } from "./resolvers";
 

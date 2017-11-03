@@ -1,17 +1,25 @@
 import { PubSub } from "graphql-subscriptions";
 import { withFilter } from "graphql-subscriptions";
+import GraphQLJSON from './scalars/json';
+import { GraphQLDate, GraphQLTime, GraphQLDateTime } from './scalars/datetime';
 import { db } from './db';
 
 
 const pubsub: any = new PubSub();
 
 export const resolvers: any = {
+	JSON: GraphQLJSON,
+	Date: GraphQLDate,
+	Time: GraphQLTime,
+	DateTime: GraphQLDateTime,
+
 	Query: {
-		customers: (_: any, { skip = 0, take = 10 }) => db.Customers.sort((a, b) => b.id - a.id).slice(skip, skip + take).map(x => {
-			x.loansCount = x.loans ? x.loans.length : 0;
-			x.loansAmount = (x.loans || []).reduce((r, x) => r + x.amount, 0);
-			return x;
-		}),
+		customers: (_: any, { skip = 0, take = 10 }) =>
+			db.Customers.sort((a, b) => b.id - a.id).slice(skip, skip + take).map(x => {
+				x.loansCount = x.loans ? x.loans.length : 0;
+				x.loansAmount = (x.loans || []).reduce((r, x) => r + x.amount, 0);
+				return x;
+			}),
 
 		customersCount: () => db.Customers.length,
 
@@ -34,6 +42,13 @@ export const resolvers: any = {
 
 			return null;
 		},
+	},
+
+	PhysicalCustomer: {
+
+		loans: (_: any, obj: any) => {
+			return db.Customers.filter(x => x.id == obj.id)[0];
+		}
 	},
 
 	Mutation: {
@@ -115,14 +130,10 @@ export const resolvers: any = {
 
 	Subscription: {
 		customerCreated: {
-			subscribe: withFilter(
-				() => pubsub.asyncIterator("customerCreated"),
-				(payload, variables) => {
-					// the `messageAdded` channel includes events for all channels, so we filter to only
-					// pass through events for the channel specified in the query
-					return true;
-				}
-			),
+			subscribe: () => {
+				console.log('aa');
+				return pubsub.asyncIterator("customerCreated")
+			},
 		},
 
 		loanCreated: {

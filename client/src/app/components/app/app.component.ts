@@ -17,4 +17,16 @@ export class AppComponent {
 		clickToClose: true
 	};
 
+	constructor() {
+	}
+
+	// ngOnInit() {
+	// 	this.apollo
+	// 		.subscribe({ query: onLoanAdd })
+	// 		.takeUntil(this.dispose$)
+	// 		.subscribe(x => {
+	// 			this.notify.info('Loan created', `New loan is created with amount: ${this.currency.transform(x.newItem.amount, 'USD', true)}`);
+	// 			this.refresh(null, true);
+	// 		});
+	// }
 }

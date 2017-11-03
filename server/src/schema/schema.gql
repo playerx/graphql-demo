@@ -1,3 +1,4 @@
+scalar JSON
 
 type ContactPerson {
 	id: ID!
@@ -41,12 +42,24 @@ type Loan {
 	amount: Float
 }
 
+type SearchRequest {
+	id: ID!
+	version: Int!
+	status: String
+	name: String
+	createDate: Float
+	operationType: String
+	amount: Float
+	properties: [JSON]
+}
+
 
 # This type specifies the entry points into our API
 type Query {
 	customers(skip: Int, take: Int): [Customer]    # "[]" means this is a list of channels
 	customersCount: Int
 	customer(id: ID!): Customer
+	searchRequests(filtersRql: String): SearchRequest
 }
 
 # The mutation root type, used to define all mutations

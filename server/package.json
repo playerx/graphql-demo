@@ -19,9 +19,11 @@
     "express-graphql": "^0.6.11",
     "faker": "^4.1.0",
     "graphql": "0.11.7",
+    "graphql-iso-date": "^3.3.0",
     "graphql-schema-decorator": "git+https://github.com/playerx/graphql-schema-decorator.git",
     "graphql-subscriptions": "^0.5.4",
     "graphql-tools": "2.5.0",
+    "graphql-type-json": "^0.1.4",
     "subscriptions-transport-ws": "^0.9.1"
   },
   "devDependencies": {
